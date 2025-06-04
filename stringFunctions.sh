@@ -139,16 +139,39 @@ trim() {
 
 # How to use these functions
 runExamples() {
-	stringLength "hello"                    # 5
-	substring "hello world" 6 3             # wor
-	removePrefix "hello world" "he"         # llo world
-	removeLongestPrefix "hello world" "h*w" # orld
-	replaceFirst "hello world" "l" "L"      # heLlo world
-	toUpper "hello"                         # HELLO
-	matchRegex "hello123" "[0-9]+"          # 123
-	defaultIfEmpty "" "default"             # default
-	join "," a b c                          # a,b,c
-	trim "  hello  "                        # hello
+	stringLength "hello"                           # 5
+	substring "hello world" 6 3                    # wor
+	removePrefix "hello world" "he"                # llo world
+	removeLongestPrefix "hello world" "h*w"        # orld
+	removeSuffix "hello_world.txt" ".txt"          # hello_world
+	removeLongestSuffix "hello_world.tar.gz" ".*"  # hello_world
+	replaceFirst "hello world" "l" "L"             # heLlo world
+	replaceAll "banana" "a" "o"                    # bonono
+	toLower "HeLLo WoRLD"                          # hello world
+	toLowerFirst "HELLO"                           # hELLO
+	toUpper "hello"                                # HELLO
+	toUpperFirst "hello"                           # Hello
+	toggleCase "HeLLo"                             # hEllO
+	toggleCaseFirst "hello"                        # Hello
+    toggleCaseFirst "HELLO"                        # hELLO
+	matchPattern "hello123" "h*o*"                 # hello
+	matchRegex "hello123" "[0-9]+"                 # 123
+	getAllRegexMatches "test123abc456def" "[0-9]+" # 123 \n 456
+	defaultIfEmpty "" "default value"              # default value
+    defaultIfEmpty "actual" "default value"        # actual
+	unset var
+    defaultIfUnset "$var" "default"                # default
+    var="set"
+    defaultIfUnset "$var" "default"                # set
+	#errorIfEmpty "valid" "Error message"          # valid
+    #errorIfEmpty "" "Value cannot be empty"       # bash: 1: Value cannot be empty
+	unset var
+    #errorIfUnset "$var" "Variable not set"        # bash: var: Variable not set
+    var="set"
+    #errorIfUnset "$var" "Variable not set"        # set
+	concat "hello" " " "world"                     # hello world
+	join "," apple banana cherry                   # apple,banana,cherry
+	trim "   hello world   "                       # hello world
 }
 
 # Run examples
