@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# Print the char in $1 for $2 times
+repeatChar() {
+    printf -- "$1%0.s" $(seq 1 $2)
+}
+
 # String length
 stringLength() {
     echo "${#1}"
