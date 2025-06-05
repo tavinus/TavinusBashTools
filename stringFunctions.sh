@@ -2,6 +2,7 @@
 
 # Print the char in $1 for $2 times
 repeatChar() {
+    [[ $2 -gt 0 ]] || return
     printf -- "$1%0.s" $(seq 1 $2)
 }
 
