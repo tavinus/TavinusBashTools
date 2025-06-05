@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Tavinus Bash String function helpers
+# Examples at the end
+
 # Print the char in $1 for $2 times
 repeatChar() {
     [[ $2 -gt 0 ]] || return
@@ -12,6 +15,9 @@ stringLength() {
 }
 
 # Substring expansion (position, length)
+# $1 string
+# $2 position
+# $3 length
 substring() {
     local str="$1"
     local pos="$2"
@@ -145,6 +151,8 @@ trim() {
 
 # How to use these functions
 runExamples() {
+    repeatChar \# 10                               # ##########
+    repeatChar - 7                                 # -------
     stringLength "hello"                           # 5
     substring "hello world" 6 3                    # wor
     removePrefix "hello world" "he"                # llo world
