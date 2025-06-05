@@ -110,7 +110,7 @@ toggleCaseFirst() {
 
 # Check if string matches pattern (returns matched portion)
 matchPattern() {
-    [[ $1 =~ $2 ]] && echo -n "$BASH_REMATCH" || echo -n ""
+    [[ $1 =~ $2 ]] && echo -n ${BASH_REMATCH[@]} || echo -n ""
 }
 
 # Check if string matches regex (returns matched portion)
@@ -295,7 +295,7 @@ runExamples() {
     printTest 'toggleCase "HeLLo"' "$(toggleCase "HeLLo")"
     printTest 'toggleCaseFirst "hello"' "$(toggleCaseFirst "hello")"
     printTest 'toggleCaseFirst "HELLO"' "$(toggleCaseFirst "HELLO")"
-    printTest 'matchPattern "hello123" "h*o*"' "$(matchPattern "hello123" "h*o*")"
+    printTest 'matchPattern "hello123" "h.*o"' "$(matchPattern "hello123" "h.*o")"
     printTest 'matchRegex "hello123" "[0-9]+"' "$(matchRegex "hello123" "[0-9]+")"
     printTest 'getAllRegexMatches "test123abc456def" "[0-9]+"' "$(getAllRegexMatches "test123abc456def" "[0-9]+" ',')"
     printTest 'defaultIfEmpty "" "default value"' "$(defaultIfEmpty "" "default value")"
@@ -332,7 +332,7 @@ oldExamples() {
     echo && toggleCase "HeLLo"                             # hEllO
     echo && toggleCaseFirst "hello"                        # Hello
     echo && toggleCaseFirst "HELLO"                        # hELLO
-    echo && matchPattern "hello123" "h*o*"                 # hello
+    echo && matchPattern "hello123" "h.*o"                 # hello
     echo && matchRegex "hello123" "[0-9]+"                 # 123
     echo && getAllRegexMatches "test123abc456def" "[0-9]+" # 123,456
     echo && defaultIfEmpty "" "default value"              # default value
