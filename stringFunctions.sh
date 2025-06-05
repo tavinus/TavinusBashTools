@@ -201,7 +201,7 @@ centerText() {
 
 # Creates a table line with size $1
 tableLine() {
-    [[ $1 -gt 3 ]] || return
+    [[ $1 -gt 2 ]] || return
     local s=$1
     printf "+%s+\n" "$(repeatChar '-' $((s-2)))"
 }
@@ -350,7 +350,7 @@ oldExamples() {
     echo && concat "hello" "  " "world"                    # hello world
     echo && join "," apple banana cherry                   # apple,banana,cherry
     echo && trim "   hello world   "                       # hello world
-    echo ""
+    echo
 }
 
 
