@@ -350,6 +350,7 @@ oldExamples() {
     echo && concat "hello" "  " "world"                    # hello world
     echo && join "," apple banana cherry                   # apple,banana,cherry
     echo && trim "   hello world   "                       # hello world
+    echo ""
 }
 
 
