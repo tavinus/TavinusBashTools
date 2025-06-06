@@ -8,7 +8,7 @@
 # These functions are made to be portable
 # This means they do not depend on each other
 # The exception being the table functions,
-# which use other functions from this file
+# which use the repeatChar function
 #
 # Examples that cause errors are commented out
 # because they break execution
